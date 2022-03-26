@@ -10,35 +10,61 @@ Barang
         <div class="card">
             <div class="card-body">
                 <a href="{{ route('barang.create') }}" class="btn btn-primary">Tambah Barang</a>
+                @if (Session::get('status'))
+                <div class="my-3 alert alert-success" role="alert">
+                    <strong>{{ Session::get('status') }}</strong>
+
+                </div>
+                @endif
                 <table id="example2" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Kategori</th>
+                            <th>Photo</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                        $no = 1;
+                        @endphp
+                        @foreach ($items as $item)
                         <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                                Explorer 4.0
+                            <td>{{ $no++ }}</td>
+                            <td>
+                                {{ $item->nama_barang }}
                             </td>
-                            <td>Win 95+</td>
-                            <td> 4</td>
-                            <td>X</td>
-                        </tr>
+                            <td>{{ $item->kategori->nama_kategori }}</td>
+                            <td>
+                                <img src="{{ asset('backend/barang/' . $item->foto_barang) }}" alt="" width="100">
+                            </td>
+                            <td>
+                                <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-info" title="Detail"><i
+                                        class="fa fa-eye"></i></a>
+                                <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning" title="Edit"><i
+                                        class="fa fa-edit"></i></a>
 
+                                <form class="d-inline" action="{{ route('barang.destroy', $item->id) }}" method="POST"
+                                    onsubmit="return confirm('Apakah Anda Yakin?')">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" title="Hapus" class="btn btn-danger"><i
+                                            class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Kategori</th>
+                            <th>Photo</th>
+                            <th>Aksi</th>
                         </tr>
                     </tfoot>
                 </table>

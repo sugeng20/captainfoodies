@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Barang;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -13,8 +15,10 @@ class BarangController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('pages.backend.barang.index');
+    { 
+        return view('pages.backend.barang.index', [
+            'items' => Barang::with('kategori')->get()
+        ]);
     }
 
     /**
@@ -24,7 +28,9 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view('pages.backend.barang.create');
+        return view('pages.backend.barang.create', [
+            'categories' => Kategori::all()
+        ]);
     }
 
     /**
@@ -35,7 +41,25 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'foto_barang'       => 'required',
+            'nama_barang'       => 'required|max:255',
+            'id_kategori'       => 'required|max:11',
+            'bahan_baku'        => 'required',
+            'deskripsi'         => 'required',
+        ]);
+
+        $data = $request->all();
+        if($request->hasFile('foto_barang')) {
+            $file = $request->file('foto_barang');
+            $fileName = 'barang_' . uniqid() . '_' . date("Ymd") . 
+            '.'. $file->getClientOriginalExtension();
+            $file->move('backend/barang/', $fileName);
+            $data['foto_barang'] = $fileName;
+        }
+
+        Barang::create($data);
+        return redirect()->route('barang.index')->with('status', 'Berhasil Menambahkan Barang Baru');
     }
 
     /**
@@ -57,7 +81,10 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pages.backend.barang.edit', [
+            'categories' => Kategori::all(),
+            'item' => Barang::findOrFail($id)
+        ]);
     }
 
     /**
@@ -69,7 +96,24 @@ class BarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_barang'       => 'required|max:255',
+            'id_kategori'       => 'required|max:11',
+            'bahan_baku'        => 'required',
+            'deskripsi'         => 'required',
+        ]);
+
+        $data = $request->all();
+        if($request->hasFile('foto_barang')) {
+            $file = $request->file('foto_barang');
+            $fileName = 'barang_' . uniqid() . '_' . date("Ymd") . 
+            '.'. $file->getClientOriginalExtension();
+            $file->move('backend/barang/', $fileName);
+            $data['foto_barang'] = $fileName;
+        }
+
+        Barang::findOrFail($id)->update($data);
+        return redirect()->route('barang.index')->with('status', 'Berhasil Mengubah Barang');
     }
 
     /**
@@ -80,6 +124,7 @@ class BarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Barang::findOrFail($id)->delete();
+        return redirect()->route('barang.index')->with('status', 'Berhasil Menghapus Barang');
     }
 }

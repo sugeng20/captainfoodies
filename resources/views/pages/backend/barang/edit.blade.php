@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('title')
-Tambah Barang
+Edit Barang
 @endsection
 
 @section('content')
@@ -10,9 +10,9 @@ Tambah Barang
         <div class="card">
             <div class="card-body">
                 <a href="{{ route('barang.index') }}" class="btn btn-info mb-4">Kembali</a>
-                <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('barang.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-
+                    @method('put')
                     <div class="form-group row">
                         <label for="nama_barang" class="col-sm-2 col-form-label">Foto Barang</label>
                         <div class="col-sm-10">
@@ -26,13 +26,14 @@ Tambah Barang
                                     <span class="input-group-text">Upload</span>
                                 </div>
                             </div>
+                            <img src="{{ asset('backend/barang/' . $item->foto_barang) }}" alt="" width="100">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="nama_barang" class="col-sm-2 col-form-label">Nama Barang</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="nama_barang" name="nama_barang"
-                                placeholder="Nama Barang" required>
+                                placeholder="Nama Barang" value="{{ $item->nama_barang }}" required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -41,7 +42,8 @@ Tambah Barang
                             <select class="form-control" id="id_kategori" name="id_kategori" required>
                                 <option value="">- PILIH KATEGORI -</option>
                                 @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
+                                <option value="{{ $category->id }}" {{ $item->id_kategori == $category->id ? 'selected'
+                                    : '' }}>{{ $category->nama_kategori }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -50,7 +52,7 @@ Tambah Barang
                         <label for="bahan_baku" class="col-sm-2 col-form-label">Bahan Baku</label>
                         <div class="col-sm-10">
                             <textarea name="bahan_baku" id="bahan_baku" cols="30" rows="3" class="form-control ckeditor"
-                                required></textarea>
+                                required>{{ $item->bahan_baku }}</textarea>
                         </div>
                     </div>
 
@@ -58,7 +60,7 @@ Tambah Barang
                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                         <div class="col-sm-10">
                             <textarea name="deskripsi" id="deskripsi" cols="30" rows="3" class="form-control ckeditor"
-                                required></textarea>
+                                required>{{ $item->deskripsi }}</textarea>
                         </div>
                     </div>
 
