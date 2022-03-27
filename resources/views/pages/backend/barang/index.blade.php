@@ -9,7 +9,8 @@ Barang
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('barang.create') }}" class="btn btn-primary">Tambah Barang</a>
+                <a href="{{ route('barang.create') }}" class="btn btn-primary"><i class=" nav-icon fas fa-plus"></i>
+                    Tambah Barang</a>
                 @if (Session::get('status'))
                 <div class="my-3 alert alert-success" role="alert">
                     <strong>{{ Session::get('status') }}</strong>

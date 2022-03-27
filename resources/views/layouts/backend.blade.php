@@ -83,7 +83,7 @@
                         <li class="nav-item">
                             <a href="{{ url('kategori') }}"
                                 class="nav-link {{ Request::segment(1) == 'kategori' ? 'active' : '' }}"">
-                                <i class=" nav-icon fas fa-tachometer-alt"></i>
+                                <i class=" nav-icon fas fa-list"></i>
                                 <p>
                                     Kategori
                                 </p>
@@ -93,7 +93,7 @@
                         <li class="nav-item">
                             <a href="{{ url('barang') }}"
                                 class="nav-link {{ Request::segment(1) == 'barang' ? 'active' : '' }}"">
-                                                        <i class=" nav-icon fas fa-tachometer-alt"></i>
+                                                        <i class=" nav-icon fas fa-archive"></i>
                                 <p>
                                     Barang
                                 </p>

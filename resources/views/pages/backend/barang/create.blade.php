@@ -9,7 +9,9 @@ Tambah Barang
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('barang.index') }}" class="btn btn-info mb-4">Kembali</a>
+                <a href="{{ route('barang.index') }}" class="btn btn-info mb-4"><i
+                        class=" nav-icon fas fa-arrow-circle-left"></i>
+                    Kembali</a>
                 <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
