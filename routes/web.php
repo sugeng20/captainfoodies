@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend\BarangController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\KategoriController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,4 +29,5 @@ Route::post('authenticate', [AuthController::class, 'authenticate'])->name('auth
 Route::middleware(['auth'])->group(function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('barang', BarangController::class);
+    Route::resource('kategori', KategoriController::class);
 });
