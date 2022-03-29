@@ -78,9 +78,6 @@
                             <a class="nav-link page-scroll" href="#product">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link page-scroll" href="#team">Team</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link page-scroll" href="#contact">Contact</a>
                         </li>
 
@@ -96,7 +93,7 @@
     <div class="main">
 
         <!--hero section start-->
-        <section class="hero-section background-img ptb-100" style="height: 100vh" id="home">
+        <section class="hero-section background-img ptb-100" id="home">
             <div class="container">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-md-7 col-lg-6">
@@ -106,7 +103,7 @@
                             <p class="lead">Limited time offer download and updated our app, synthesize accurate users
                                 whereas communities assertively evolve technically sound whereas real-time materials.
                             </p>
-                            <a href="#product" class="btn google-play-btn">Get Started Now</a>
+                            <a href="#product" class="btn page-scroll google-play-btn">Get Started Now</a>
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-5">
@@ -121,7 +118,7 @@
         <!--hero section end-->
 
         <!--promo section start-->
-        <section class="promo-section ptb-100">
+        <section class="promo-section ptb-100" id="about">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-7 col-md-8">
@@ -171,7 +168,7 @@
         <!--promo section end-->
 
         <!--our blog section start-->
-        <section id="blog" class="our-blog-section ptb-100 gray-light-bg">
+        <section id="product" class="our-blog-section ptb-100 gray-light-bg">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
