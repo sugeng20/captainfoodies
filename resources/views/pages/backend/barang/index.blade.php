@@ -42,8 +42,8 @@ Barang
                                 <img src="{{ asset('backend/barang/' . $item->foto_barang) }}" alt="" width="100">
                             </td>
                             <td>
-                                <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-info" title="Detail"><i
-                                        class="fa fa-eye"></i></a>
+                                <a href="{{ route('detail-produk', $item->slug) }}" class="btn btn-info" title="Detail"
+                                    target="_blank"><i class="fa fa-eye"></i></a>
                                 <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning" title="Edit"><i
                                         class="fa fa-edit"></i></a>
 
