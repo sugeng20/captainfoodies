@@ -19,7 +19,7 @@ class CreateBarangTable extends Migration
             $table->string('nama_barang');
             $table->integer('id_kategori');
             $table->longText('deskripsi');
-            $table->longText('bahan_baku');
+            $table->string('slug');
             $table->timestamps();
         });
     }

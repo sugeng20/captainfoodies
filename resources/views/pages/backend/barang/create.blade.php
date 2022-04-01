@@ -48,13 +48,6 @@ Tambah Barang
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="bahan_baku" class="col-sm-2 col-form-label">Bahan Baku</label>
-                        <div class="col-sm-10">
-                            <textarea name="bahan_baku" id="bahan_baku" cols="30" rows="3" class="form-control ckeditor"
-                                required></textarea>
-                        </div>
-                    </div>
 
                     <div class="form-group row">
                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>

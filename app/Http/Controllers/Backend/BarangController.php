@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Barang;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BarangController extends Controller
 {
@@ -45,11 +46,11 @@ class BarangController extends Controller
             'foto_barang'       => 'required',
             'nama_barang'       => 'required|max:255',
             'id_kategori'       => 'required|max:11',
-            'bahan_baku'        => 'required',
             'deskripsi'         => 'required',
         ]);
 
         $data = $request->all();
+        $data['slug'] = Str::slug($request->nama_barang);
         if($request->hasFile('foto_barang')) {
             $file = $request->file('foto_barang');
             $fileName = 'barang_' . uniqid() . '_' . date("Ymd") . 
@@ -99,11 +100,11 @@ class BarangController extends Controller
         $request->validate([
             'nama_barang'       => 'required|max:255',
             'id_kategori'       => 'required|max:11',
-            'bahan_baku'        => 'required',
             'deskripsi'         => 'required',
         ]);
 
         $data = $request->all();
+        $data['slug'] = Str::slug($request->nama_barang);
         if($request->hasFile('foto_barang')) {
             $file = $request->file('foto_barang');
             $fileName = 'barang_' . uniqid() . '_' . date("Ymd") . 
