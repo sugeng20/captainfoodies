@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Kategori;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 
@@ -17,7 +16,6 @@ class DashboardController extends Controller
     public function index()
     {
         return view('pages.backend.dashboard.index', [
-            'kategori' => Kategori::count(),
             'barang' => Barang::count(),
         ]);
     }

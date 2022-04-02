@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend\BarangController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\KategoriController;
+use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +31,5 @@ Route::middleware(['auth'])->group(function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('barang', BarangController::class);
     Route::resource('kategori', KategoriController::class);
+    Route::resource('user', UserController::class);
 });

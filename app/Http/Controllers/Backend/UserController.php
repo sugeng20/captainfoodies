@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Kategori;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
-class KategoriController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        return view('pages.backend.kategori.index', [
-            'items' => Kategori::all()
-        ]);
+        $user = Auth::user();
+        return view('pages.backend.user.index', compact('user'));
     }
 
     /**
@@ -27,7 +28,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('pages.backend.kategori.create');
+        //
     }
 
     /**
@@ -39,12 +40,14 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kategori' => 'required|max:255'
+            'password' => 'required|same:konfirmasi_password'
         ]);
 
-        Kategori::create($request->all());
+        User::findOrFail($request->id)->update([
+            'password' => Hash::make($request->password)
+        ]);
 
-        return redirect()->route('kategori.index')->with('status', 'Berhasil Menambahkan Kategori Baru');
+        return redirect()->route('user.index')->with('status', 'Berhasil Mengubah Password User');
     }
 
     /**
@@ -55,7 +58,8 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('pages.backend.user.show', compact('user'));
     }
 
     /**
@@ -66,9 +70,7 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.backend.kategori.edit', [
-            'item' => Kategori::findOrFail($id)
-        ]);
+        //
     }
 
     /**
@@ -81,12 +83,14 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_kategori' => 'required|max:255'
+            'nama_lengkap'  => 'required',
+            'username'      => 'required',
+            'no_whatsapp'   => 'required',
         ]);
 
-        Kategori::findOrFail($id)->update($request->all());
+        User::findOrFail($id)->update($request->all());
 
-        return redirect()->route('kategori.index')->with('status', 'Berhasil Mengubah Kategori');
+        return redirect()->route('user.index')->with('status', 'Berhasil Mengubah Data User');
     }
 
     /**
@@ -97,7 +101,6 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        Kategori::findOrFail($id)->delete();
-        return redirect()->route('kategori.index')->with('status', 'Berhasil Menghapus Kategori');
+        //
     }
 }

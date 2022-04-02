@@ -111,8 +111,8 @@
                         <div class="footer-nav-wrap text-white">
                             <img src="{{ asset('frontend/img/logo-white-1x.png') }}" alt="footer logo" width="120"
                                 class="img-fluid mb-3">
-                            <p>Holisticly empower premium architectures without value-added ideas. Seamlessly evolve
-                                cross-platform experiences.</p>
+                            <p>Menyediakan beberapa jajanan makanan yang siap dikirim kapan dan dimanapun anda berada.
+                            </p>
 
                             <div class="social-list-wrap">
                                 <ul class="social-list list-inline list-unstyled">
@@ -151,9 +151,9 @@
                                 <li class="mb-2 d-flex align-items-center"><span class="ti-mobile mr-2"></span> <a
                                         href="tel:+61283766284"> +61 2 8376 6284</a></li>
                                 <li class="mb-2 d-flex align-items-center"><span class="ti-email mr-2"></span><a
-                                        href="mailto:mail@example.com"> mail@example.com</a></li>
+                                        href="mailto:mail@sahabatpintar.com"> fooddigital@sahabatpintar.com</a></li>
                                 <li class="mb-2 d-flex align-items-center"><span class="ti-world mr-2"></span><a
-                                        href="#"> www.yourdomain.com</a></li>
+                                        href="#"> www.foodigital.sahabatpintar.com</a></li>
                             </ul>
                         </div>
                     </div>

@@ -22,7 +22,6 @@ Barang
                         <tr>
                             <th>No</th>
                             <th>Nama Barang</th>
-                            <th>Kategori</th>
                             <th>Photo</th>
                             <th>Aksi</th>
                         </tr>
@@ -37,7 +36,6 @@ Barang
                             <td>
                                 {{ $item->nama_barang }}
                             </td>
-                            <td>{{ $item->kategori->nama_kategori }}</td>
                             <td>
                                 <img src="{{ asset('backend/barang/' . $item->foto_barang) }}" alt="" width="100">
                             </td>
@@ -63,7 +61,6 @@ Barang
                         <tr>
                             <th>No</th>
                             <th>Nama Barang</th>
-                            <th>Kategori</th>
                             <th>Photo</th>
                             <th>Aksi</th>
                         </tr>

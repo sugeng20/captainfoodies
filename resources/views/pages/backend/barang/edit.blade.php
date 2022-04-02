@@ -37,18 +37,6 @@ Edit Barang
                                 placeholder="Nama Barang" value="{{ $item->nama_barang }}" required>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="id_kategori" class="col-sm-2 col-form-label">Kategori Barang</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="id_kategori" name="id_kategori" required>
-                                <option value="">- PILIH KATEGORI -</option>
-                                @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ $item->id_kategori == $category->id ? 'selected'
-                                    : '' }}>{{ $category->nama_kategori }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
 
                     <div class="form-group row">
                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>

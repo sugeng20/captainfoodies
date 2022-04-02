@@ -61,7 +61,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="{{ url('/') }}" class="d-block">{{ Auth::user()->nama_lengkap }}</a>
+                        <a href="{{ url('/user') }}" class="d-block">{{ Auth::user()->nama_lengkap }}</a>
                     </div>
                 </div>
 
@@ -81,21 +81,21 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ url('kategori') }}"
-                                class="nav-link {{ Request::segment(1) == 'kategori' ? 'active' : '' }}"">
-                                <i class=" nav-icon fas fa-list"></i>
-                                <p>
-                                    Kategori
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
                             <a href="{{ url('barang') }}"
                                 class="nav-link {{ Request::segment(1) == 'barang' ? 'active' : '' }}"">
                                                         <i class=" nav-icon fas fa-archive"></i>
                                 <p>
                                     Barang
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ url('user') }}"
+                                class="nav-link {{ Request::segment(1) == 'user' ? 'active' : '' }}"">
+                                                        <i class=" nav-icon fas fa-list"></i>
+                                <p>
+                                    Pengaturan
                                 </p>
                             </a>
                         </li>

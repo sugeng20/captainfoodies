@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('title')
-Tambah Barang
+User
 @endsection
 
 @section('content')
@@ -9,9 +9,14 @@ Tambah Barang
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('barang.index') }}" class="btn btn-info mb-4"><i
-                        class=" nav-icon fas fa-arrow-circle-left"></i>
-                    Kembali</a>
+                <a href="{{ route('user.show', $user->id) }}" class="btn btn-warning mb-4"><i
+                        class=" nav-icon fas fa-lock"></i>
+                    Ganti Password</a>
+                @if (Session::get('status'))
+                <div class="my-3 alert alert-success" role="alert">
+                    <strong>{{ Session::get('status') }}</strong>
+                </div>
+                @endif
                 @if ($errors->any())
                 <div class="row my-3">
                     <div class="col-sm-12">
@@ -25,38 +30,33 @@ Tambah Barang
                     </div>
                 </div>
                 @endif
-                <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
                     <div class="form-group row">
-                        <label for="nama_barang" class="col-sm-2 col-form-label">Foto Barang</label>
+                        <label for="nama_lengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
                         <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile"
-                                        name="foto_barang">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="nama_barang" class="col-sm-2 col-form-label">Nama Barang</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama_barang" name="nama_barang"
-                                placeholder="Nama Barang" required>
+                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
+                                value="{{ $user->nama_lengkap }}" placeholder="Nama Lengkap" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
+                        <label for="username" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
-                            <textarea name="deskripsi" id="deskripsi" cols="30" rows="3" class="form-control ckeditor"
-                                required></textarea>
+                            <input type="text" class="form-control" id="username" name="username"
+                                value="{{ $user->username }}" placeholder="Username" required>
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label for="no_whatsapp" class="col-sm-2 col-form-label">No Whatsapp</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="no_whatsapp" name="no_whatsapp"
+                                value="{{ $user->no_whatsapp }}" placeholder="No Whatsapp" required>
+                        </div>
+                    </div>
+
 
                     <button class="btn btn-primary">Submit</button>
                 </form>

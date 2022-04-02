@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('title')
-Tambah Barang
+Ganti Password
 @endsection
 
 @section('content')
@@ -9,9 +9,11 @@ Tambah Barang
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('barang.index') }}" class="btn btn-info mb-4"><i
-                        class=" nav-icon fas fa-arrow-circle-left"></i>
-                    Kembali</a>
+                @if (Session::get('status'))
+                <div class="my-3 alert alert-success" role="alert">
+                    <strong>{{ Session::get('status') }}</strong>
+                </div>
+                @endif
                 @if ($errors->any())
                 <div class="row my-3">
                     <div class="col-sm-12">
@@ -25,36 +27,22 @@ Tambah Barang
                     </div>
                 </div>
                 @endif
-                <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="id" value="{{ $user->id }}">
                     <div class="form-group row">
-                        <label for="nama_barang" class="col-sm-2 col-form-label">Foto Barang</label>
+                        <label for="password" class="col-sm-2 col-form-label">Password Baru</label>
                         <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile"
-                                        name="foto_barang">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="nama_barang" class="col-sm-2 col-form-label">Nama Barang</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nama_barang" name="nama_barang"
-                                placeholder="Nama Barang" required>
+                            <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Masukan Password Baru" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
+                        <label for="konfirmasi_password" class="col-sm-2 col-form-label">Konfirmasi Password</label>
                         <div class="col-sm-10">
-                            <textarea name="deskripsi" id="deskripsi" cols="30" rows="3" class="form-control ckeditor"
-                                required></textarea>
+                            <input type="password" class="form-control" id="konfirmasi_password"
+                                name="konfirmasi_password" placeholder="Konfirmasi Password" required>
                         </div>
                     </div>
 

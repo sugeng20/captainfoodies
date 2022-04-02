@@ -12,10 +12,10 @@
                     <div class="position-relative mt-lg-0 mt-md-0 mt-5 text-white">
                         <h3 class="text-white">Sahabat Pintar</h3>
                         <h1 class="text-white big-text mb-0">Food Digital</h1>
-                        <p class="lead">Limited time offer download and updated our app, synthesize accurate users
-                            whereas communities assertively evolve technically sound whereas real-time materials.
+                        <p class="lead">Menyediakan beberapa jajanan makanan yang siap dikirim kapan dan dimanapun anda
+                            berada.
                         </p>
-                        <a href="#product" class="btn page-scroll google-play-btn">Get Started Now</a>
+                        <a href="#product" class="btn page-scroll google-play-btn">Lihat Makanan</a>
                     </div>
                 </div>
                 <div class="col-md-5 col-lg-5">
@@ -37,8 +37,7 @@
                     <div class="section-heading text-center mb-5">
                         <h2>Kenapa Pilih Food Digital ?</h2>
                         <p class="lead">
-                            Following reasons show advantages of adding AppCo to your lead pages, demos and
-                            checkouts
+                            Alasan berikut menunjukan keuntungan Berbelanja di Food Digital
                         </p>
                     </div>
                 </div>
@@ -101,7 +100,8 @@
                         <div class="card-body">
                             <div class="post-meta mb-2">
                                 <ul class="list-inline meta-list">
-                                    <li class="list-inline-item">Jan 21, 2019</li>
+                                    <li class="list-inline-item">{{ Carbon\Carbon::parse($item->created_at)->format('M
+                                        d, Y') }}</li>
                                     <li class="list-inline-item"><span>45</span> Terjual</li>
                                     <li class="list-inline-item"><span>10</span> Share</li>
                                 </ul>
