@@ -102,6 +102,7 @@
                                         class="quantity-field">
                                     <input type="button" value="+" class="button-plus" data-field="quantity">
                                 </div>
+                                {{-- <h5 class="post-title">Sub Total : Rp. <span id="sub_total">50.000</span></h5> --}}
                                 <a href="https://wa.me/083843063532?text=Kak%20saya%20mau%20pesen%20*1%20{{ $item->nama_barang }}*"
                                     class="btn btn-lg btn-success" id="beli_sekarang" target="_blank"><i
                                         class="fab fa-whatsapp"></i>
