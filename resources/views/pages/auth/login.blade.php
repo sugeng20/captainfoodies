@@ -22,7 +22,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="{{ url('/') }}" class="h1"><b>Food</b> Digital</a>
+                <a href="{{ url('/') }}" class="h1"><b>Captain</b> Foodies</a>
             </div>
             <div class="card-body">
                 @if (Session::get('status'))
