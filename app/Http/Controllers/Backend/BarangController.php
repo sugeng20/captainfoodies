@@ -29,7 +29,9 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view('pages.backend.barang.create');
+        return view('pages.backend.barang.create', [
+            'categories' => Kategori::all()
+        ]);
     }
 
     /**
@@ -44,6 +46,7 @@ class BarangController extends Controller
             'foto_barang'       => 'required',
             'nama_barang'       => 'required|max:255',
             'harga_barang'      => 'required|max:11',
+            'id_kategori'       => 'required|max:11',
             'deskripsi'         => 'required',
         ]);
 
@@ -81,6 +84,7 @@ class BarangController extends Controller
     public function edit($id)
     {
         return view('pages.backend.barang.edit', [
+            'categories' => Kategori::all(),
             'item' => Barang::findOrFail($id)
         ]);
     }
@@ -97,6 +101,7 @@ class BarangController extends Controller
         $request->validate([
             'nama_barang'       => 'required|max:255',
             'harga_barang'      => 'required|max:11',
+            'id_kategori'       => 'required|max:11',
             'deskripsi'         => 'required',
         ]);
 

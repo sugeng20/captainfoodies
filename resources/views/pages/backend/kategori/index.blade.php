@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('title')
-Barang
+Kategori
 @endsection
 
 @section('content')
@@ -9,8 +9,7 @@ Barang
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('barang.create') }}" class="btn btn-primary"><i class=" nav-icon fas fa-plus"></i>
-                    Tambah Barang</a>
+                <a href="{{ route('kategori.create') }}" class="btn btn-primary">Tambah Kategori</a>
                 @if (Session::get('status'))
                 <div class="my-3 alert alert-success" role="alert">
                     <strong>{{ Session::get('status') }}</strong>
@@ -21,9 +20,7 @@ Barang
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Barang</th>
-                            <th>Kategori</th>
-                            <th>Photo</th>
+                            <th>Nama Kategori</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -34,22 +31,16 @@ Barang
                         @foreach ($items as $item)
                         <tr>
                             <td>{{ $no++ }}</td>
-                            <td>
-                                {{ $item->nama_barang }}
-                            </td>
-                            <td>
-                                {{ $item->kategori->nama_kategori }}
-                            </td>
-                            <td>
-                                <img src="{{ asset('backend/barang/' . $item->foto_barang) }}" alt="" width="100">
-                            </td>
-                            <td>
-                                <a href="{{ route('detail-produk', $item->slug) }}" class="btn btn-info" title="Detail"
-                                    target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning" title="Edit"><i
-                                        class="fa fa-edit"></i></a>
 
-                                <form class="d-inline" action="{{ route('barang.destroy', $item->id) }}" method="POST"
+                            <td>
+                                {{ $item->nama_kategori }}
+                            </td>
+
+                            <td>
+                                <a href="{{ route('kategori.edit', $item->id) }}" class="btn btn-warning"
+                                    title="Edit"><i class="fa fa-edit"></i></a>
+
+                                <form class="d-inline" action="{{ route('kategori.destroy', $item->id) }}" method="POST"
                                     onsubmit="return confirm('Apakah Anda Yakin?')">
                                     @csrf
                                     @method('delete')
@@ -64,9 +55,7 @@ Barang
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>Nama Barang</th>
-                            <th>Photo</th>
-                            <th>Kategori</th>
+                            <th>Nama Kategori</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>

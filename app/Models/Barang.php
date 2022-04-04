@@ -12,6 +12,11 @@ class Barang extends Model
     protected $table = 'barang';
 
     protected $fillable = [
-        'nama_barang', 'foto_barang', 'deskripsi', 'slug', 'harga_barang'
+        'nama_barang', 'foto_barang', 'deskripsi', 'slug', 'harga_barang', 'id_kategori'
     ];
+
+    public function kategori()
+    {
+        return $this->hasOne(Kategori::class, 'id', 'id_kategori');
+    }
 }

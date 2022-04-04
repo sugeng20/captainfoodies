@@ -30,6 +30,7 @@ Edit Barang
                             <img src="{{ asset('backend/barang/' . $item->foto_barang) }}" alt="" width="100">
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label for="nama_barang" class="col-sm-2 col-form-label">Nama Barang</label>
                         <div class="col-sm-10">
@@ -43,6 +44,19 @@ Edit Barang
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="harga_barang" name="harga_barang"
                                 placeholder="Harga Barang" value="{{ $item->harga_barang }}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="id_kategori" class="col-sm-2 col-form-label">Kategori Barang</label>
+                        <div class="col-sm-10">
+                            <select name="id_kategori" id="id_kategori" class="form-control">
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}" {{ $category->id == $item->id_kategori ? 'selected'
+                                    : '' }}>{{
+                                    $category->nama_kategori }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
 

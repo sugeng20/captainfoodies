@@ -49,7 +49,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <!--responsive css-->
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-
+    @stack('add-css')
 </head>
 
 <body>
@@ -204,6 +204,7 @@
     <script src="{{ asset('frontend/js/validator.min.js') }}"></script>
     <!--custom js-->
     <script src="{{ asset('frontend/js/scripts.js') }}"></script>
+    @stack('add-script')
 </body>
 
 </html>
