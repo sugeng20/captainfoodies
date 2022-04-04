@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $items = Barang::limit(3)->get();
+        $items = Barang::all();
         return view('pages.frontend.home', compact('items'));
     }
 
