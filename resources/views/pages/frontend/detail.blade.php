@@ -11,14 +11,9 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4">
                         <!-- Post-->
-
                         <div class="post-preview"><img src="{{ asset('backend/barang/' . $item->foto_barang) }}"
                                 alt="article" class="img-fluid" /></div>
-
-
                         <!-- Post end-->
-
-
                     </div>
 
                     <div class="col-lg-6 col-md-6">
@@ -30,7 +25,8 @@
                                     <ul class="post-meta">
                                         <li>7 Berhasil Terjual</li>
                                     </ul>
-                                    <h1 class="post-title">Rp. 50.000</h1>
+                                    <h1 class="post-title">Rp. {{ number_format($item->harga_barang, 0, ',', '.') }}
+                                    </h1>
                                 </div>
                             </div>
                             <div class="post-content">

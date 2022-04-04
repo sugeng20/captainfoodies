@@ -9,8 +9,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="section-heading mb-5">
-                        <h2>Produk Kami</h2>
+                    <div class="section-heading mb-3 mt-5">
+                        <h3>Produk Kami</h3>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <h5 class="h6 card-title">{{
                                     $item->nama_barang }}</h5>
-                                <h3 class="h5 card-title">Rp. 50.000</h3>
+                                <h3 class="h5 card-title">Rp. {{ number_format($item->harga_barang, 0, ',', '.') }}</h3>
 
                             </div>
                         </div>

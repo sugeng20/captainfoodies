@@ -39,6 +39,14 @@ Edit Barang
                     </div>
 
                     <div class="form-group row">
+                        <label for="harga_barang" class="col-sm-2 col-form-label">Harga Barang</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="harga_barang" name="harga_barang"
+                                placeholder="Harga Barang" value="{{ $item->harga_barang }}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                         <div class="col-sm-10">
                             <textarea name="deskripsi" id="deskripsi" cols="30" rows="3" class="form-control ckeditor"
