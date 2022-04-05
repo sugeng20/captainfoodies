@@ -18,7 +18,7 @@ class BarangController extends Controller
     public function index()
     { 
         return view('pages.backend.barang.index', [
-            'items' => Barang::all()
+            'items' => Barang::orderBy('id', 'DESC')->get()
         ]);
     }
 
@@ -51,6 +51,7 @@ class BarangController extends Controller
         ]);
 
         $data = $request->all();
+        $data['harga_barang'] = str_replace('.', '', $request->harga_barang);
         $data['slug'] = Str::slug($request->nama_barang);
         if($request->hasFile('foto_barang')) {
             $file = $request->file('foto_barang');
@@ -106,6 +107,7 @@ class BarangController extends Controller
         ]);
 
         $data = $request->all();
+        $data['harga_barang'] = str_replace('.', '', $request->harga_barang);
         $data['slug'] = Str::slug($request->nama_barang);
         if($request->hasFile('foto_barang')) {
             $file = $request->file('foto_barang');

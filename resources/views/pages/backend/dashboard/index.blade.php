@@ -6,7 +6,7 @@ Dashboard
 
 @section('content')
 <div class="row">
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-6 col-6">
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
@@ -22,7 +22,7 @@ Dashboard
         </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-6 col-6">
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
@@ -37,6 +37,7 @@ Dashboard
                     class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
+    {{--
     <!-- ./col -->
     <div class="col-lg-3 col-6">
         <!-- small box -->
@@ -68,5 +69,6 @@ Dashboard
         </div>
     </div>
     <!-- ./col -->
+    --}}
 </div>
 @endsection
