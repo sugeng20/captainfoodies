@@ -100,22 +100,6 @@
     <script src="{{ asset('frontend/js/popper.min.js') }}"></script>
     <!--Bootstrap js-->
     <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
-    <!--Magnific popup js-->
-    <script src="{{ asset('frontend/js/jquery.magnific-popup.min.js') }}"></script>
-    <!--jquery easing js-->
-    <script src="{{ asset('frontend/js/jquery.easing.min.js') }}"></script>
-    <!--jquery ytplayer js-->
-    <script src="{{ asset('frontend/js/jquery.mb.YTPlayer.min.js') }}"></script>
-    <!--wow js-->
-    <script src="{{ asset('frontend/js/wow.min.js') }}"></script>
-    <!--owl carousel js-->
-    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
-    <!--countdown js-->
-    <script src="{{ asset('frontend/js/jquery.countdown.min.js') }}"></script>
-    <!--validator js-->
-    <script src="{{ asset('frontend/js/validator.min.js') }}"></script>
-    <!--custom js-->
-    <script src="{{ asset('frontend/js/scripts.js') }}"></script>
     @stack('add-script')
 </body>
 

@@ -102,7 +102,7 @@
                                         class="quantity-field">
                                     <input type="button" value="+" class="button-plus" data-field="quantity">
                                 </div>
-                                {{-- <h5 class="post-title">Sub Total : Rp. <span id="sub_total">50.000</span></h5> --}}
+                                <h5 class="post-title">Sub Total : Rp. <span id="sub_total">50.000</span></h5>
                                 <a href="https://wa.me/083843063532?text=Kak%20saya%20mau%20pesen%20*1%20{{ $item->nama_barang }}*"
                                     class="btn btn-lg btn-success" id="beli_sekarang" target="_blank"><i
                                         class="fab fa-whatsapp"></i>
@@ -160,16 +160,38 @@
         return counter;
     }
 
+    function formatRupiah(angka, prefix){
+        var number_string   = String(angka).replace(/[^,\d]/g, '').toString(),
+        split   		    = number_string.split(','),
+        sisa     		    = split[0].length % 3,
+        rupiah     		    = split[0].substr(0, sisa),
+        ribuan     		    = split[0].substr(sisa).match(/\d{3}/gi);
+
+        // tambahkan titik jika yang di input sudah menjadi angka ribuan
+        if(ribuan){
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
+    }
+
+    var harga_barang = {{ $item->harga_barang }};
+    var sub_total = {{ $item->harga_barang }};
+
     $('.input-group').on('click', '.button-plus', function(e) {
         let increment = incrementValue(e);
         let pesan = `https://wa.me/083843063532?text=Kak%20saya%20mau%20pesen%20*${increment}%20{{ $item->nama_barang }}*`;
         $('#beli_sekarang').attr('href', pesan);
+        $('#sub_total').html(formatRupiah(sub_total += harga_barang))
     });
 
     $('.input-group').on('click', '.button-minus', function(e) {
         let decrement = decrementValue(e);
         let pesan = `https://wa.me/083843063532?text=Kak%20saya%20mau%20pesen%20*${decrement}%20{{ $item->nama_barang }}*`;
         $('#beli_sekarang').attr('href', pesan);
+        $('#sub_total').html(formatRupiah(sub_total -= harga_barang))
     });
 
 </script>
