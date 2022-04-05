@@ -104,7 +104,7 @@
                                 </div>
                                 <h5 class="post-title">Sub Total : Rp. <span id="sub_total">{{
                                         number_format($item->harga_barang, 0, ',', '.') }}</span></h5>
-                                <a href="https://wa.me/083843063532?text=Kak%20saya%20mau%20pesen%20*1%20{{ $item->nama_barang }}*"
+                                <a href="https://wa.me/{{ $no_whatsapp }}?text=Kak%20saya%20mau%20pesen%20*1%20{{ $item->nama_barang }}*"
                                     class="btn btn-lg btn-success" id="beli_sekarang" target="_blank"><i
                                         class="fab fa-whatsapp"></i>
                                     Beli
@@ -183,14 +183,14 @@
 
     $('.input-group').on('click', '.button-plus', function(e) {
         let increment = incrementValue(e);
-        let pesan = `https://wa.me/083843063532?text=Kak%20saya%20mau%20pesen%20*${increment}%20{{ $item->nama_barang }}*`;
+        let pesan = `https://wa.me/{{ $no_whatsapp }}?text=Kak%20saya%20mau%20pesen%20*${increment}%20{{ $item->nama_barang }}*`;
         $('#beli_sekarang').attr('href', pesan);
         $('#sub_total').html(formatRupiah(sub_total += harga_barang))
     });
 
     $('.input-group').on('click', '.button-minus', function(e) {
         let decrement = decrementValue(e);
-        let pesan = `https://wa.me/083843063532?text=Kak%20saya%20mau%20pesen%20*${decrement}%20{{ $item->nama_barang }}*`;
+        let pesan = `https://wa.me/{{ $no_whatsapp }}?text=Kak%20saya%20mau%20pesen%20*${decrement}%20{{ $item->nama_barang }}*`;
         $('#beli_sekarang').attr('href', pesan);
         $('#sub_total').html(formatRupiah(sub_total -= harga_barang))
     });

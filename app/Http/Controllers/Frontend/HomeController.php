@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
 use App\Models\Kategori;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,6 +19,7 @@ class HomeController extends Controller
     public function detail($slug)
     {
         $item = Barang::where('slug', $slug)->firstOrFail();
-        return view('pages.frontend.detail', compact('item'));
+        $no_whatsapp = User::find(1)->no_whatsapp;
+        return view('pages.frontend.detail', compact('item', 'no_whatsapp'));
     }
 }
