@@ -77,7 +77,8 @@
                     <div class="col-lg-4 col-md-4">
                         <!-- Post-->
                         <div class="post-preview"><img src="{{ asset('backend/barang/' . $item->foto_barang) }}"
-                                alt="article" class="img-fluid" /></div>
+                                alt="article" class="img-fluid" id="zoom_01"
+                                data-zoom-image="{{ asset('backend/barang/' . $item->foto_barang) }}" /></div>
                         <!-- Post end-->
                     </div>
 
@@ -124,7 +125,14 @@
 @endsection
 
 @push('add-script')
+<script src="{{ asset('frontend/js/jquery.elevatezoom.js') }}"></script>
 <script>
+    $('#zoom_01').elevateZoom({
+        zoomType: "inner",
+        cursor: "crosshair",
+        zoomWindowFadeIn: 500,
+        zoomWindowFadeOut: 750
+    });
     function incrementValue(e) {
         e.preventDefault();
         var fieldName = $(e.target).data('field');
