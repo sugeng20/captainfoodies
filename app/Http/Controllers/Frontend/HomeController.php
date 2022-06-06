@@ -16,6 +16,12 @@ class HomeController extends Controller
         return view('pages.frontend.home', compact('items'));
     }
 
+    public function beranda()
+    {
+        $items = Kategori::with('barang')->where('nama_kategori', '!=', 'Non Kategori')->get();
+        return view('pages.frontend.beranda', compact('items'));
+    }
+
     public function detail($slug)
     {
         $item = Barang::where('slug', $slug)->firstOrFail();

@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/beranda', [HomeController::class, 'beranda']);
 Route::get('/produk/{detail}', [HomeController::class, 'detail'])->name('detail-produk');
 
 Route::get('login', [AuthController::class, 'login'])->name('login');
