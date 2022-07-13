@@ -105,7 +105,7 @@
                                 </div>
                                 <h5 class="post-title">Sub Total : Rp. <span id="sub_total">{{
                                         number_format($item->harga_barang, 0, ',', '.') }}</span></h5>
-                                <a href="https://wa.me/{{ $no_whatsapp }}?text=Kak%20saya%20mau%20pesen%20*1%20{{ $item->nama_barang }}*"
+                                <a href="https://wa.me/{{ $no_whatsapp }}?text=Kak%20saya%20mau%20pesen%20*1%20{{ $item->nama_barang }}*\nberikut adalah alamat saya \nAlamat Lenkap:\n"
                                     class="btn btn-lg btn-success" id="beli_sekarang" target="_blank"><i
                                         class="fab fa-whatsapp"></i>
                                     Beli
