@@ -1,81 +1,119 @@
 @extends('layouts.frontend')
 
 @section('content')
-<!--body content wrap start-->
-<div class="main">
-
-    <section class="mt-5 pt-100">
-        <div class="container mt-5">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ asset('backend/sliders/sliders-1.png') }}"
-                            style="border-radius: 20px" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('backend/sliders/sliders-2.png') }}" alt="Second slide"
-                            style="border-radius: 20px">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ asset('backend/sliders/sliders-3.png') }}" alt="Third slide"
-                            style="border-radius: 20px">
+<!-- Hero Section Begin -->
+<section class="hero-section">
+    <div class="hero-items owl-carousel">
+        <div class="single-hero-items set-bg" data-setbg="img/hero-1.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <span>Bag,kids</span>
+                        <h1>Black friday</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                            do eiusmod tempor incididunt ut labore et dolore
+                        </p>
+                        <a href="#" class="primary-btn">Shop Now</a>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
-    </section>
-
-    <!--our blog section start-->
-    <section id="product" class="our-blog-section mt-5">
-        @foreach ($items as $item)
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="section-heading mb-3">
-                        <h3>{{ $item->nama_kategori }}</h3>
+        <div class="single-hero-items set-bg" data-setbg="img/hero-2.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <span>Bag,kids</span>
+                        <h1>Black friday</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                            do eiusmod tempor incididunt ut labore et dolore
+                        </p>
+                        <a href="#" class="primary-btn">Shop Now</a>
                     </div>
                 </div>
             </div>
-            <div class="row">
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
 
-                @foreach ($item->barang as $barang)
-                <div class="col-6 col-sm-3">
-                    <a href="{{ route('detail-produk', $barang->slug) }}">
-                        <div class="single-blog-card card border-0 shadow-sm">
-                            <img src="{{ asset('backend/barang/' . $barang->foto_barang) }}"
-                                class="card-img-top position-relative" alt="blog">
-                            <div class="card-body">
-                                <h5 class="h6 card-title">{{
+<!-- Women Banner Section Begin -->
+<section class="women-banner spad">
+    <div class="container-fluid">
+        @foreach ($items as $item)
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mt-5">{{ $item->nama_kategori }}</h2>
+            </div>
+            <div class="col-lg-12 mt-5">
+                <div class="product-slider owl-carousel">
+                    @foreach ($item->barang as $barang)
+                    <div class="product-item">
+                        <div class="pi-pic">
+                            <img src="{{ asset('backend/barang/' . $barang->foto_barang) }}" alt="" />
+                            <ul>
+                                <li class="w-icon active">
+                                    <a href="#"><i class="icon_bag_alt"></i></a>
+                                </li>
+                                <li class="quick-view">
+                                    <a href="{{ route('detail-produk', $barang->slug) }}">+ Quick View</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pi-text">
+                            <div class="catagory-name">{{ $item->nama_kategori }}</div>
+                            <a href="#">
+                                <h5>{{
                                     $barang->nama_barang }}</h5>
-                                <h3 class="h5 card-title">Rp. {{ number_format($barang->harga_barang, 0, ',', '.') }}
-                                </h3>
-
+                            </a>
+                            <div class="product-price">
+                                Rp. {{ number_format($barang->harga_barang, 0, ',', '.') }}
+                                <span>Rp. {{ number_format($barang->harga_barang * 2, 0, ',', '.') }}</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
-
-
             </div>
         </div>
         @endforeach
-    </section>
-    <!--our blog section end-->
+    </div>
+</section>
+<!-- Women Banner Section End -->
 
+
+<!-- Partner Logo Section Begin -->
+<div class="partner-logo">
+    <div class="container">
+        <div class="logo-carousel owl-carousel">
+            <div class="logo-item">
+                <div class="tablecell-inner">
+                    <img src="img/logo-carousel/logo-1.png" alt="" />
+                </div>
+            </div>
+            <div class="logo-item">
+                <div class="tablecell-inner">
+                    <img src="img/logo-carousel/logo-2.png" alt="" />
+                </div>
+            </div>
+            <div class="logo-item">
+                <div class="tablecell-inner">
+                    <img src="img/logo-carousel/logo-3.png" alt="" />
+                </div>
+            </div>
+            <div class="logo-item">
+                <div class="tablecell-inner">
+                    <img src="img/logo-carousel/logo-4.png" alt="" />
+                </div>
+            </div>
+            <div class="logo-item">
+                <div class="tablecell-inner">
+                    <img src="img/logo-carousel/logo-5.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!--body content wrap end-->
+<!-- Partner Logo Section End -->
 @endsection
