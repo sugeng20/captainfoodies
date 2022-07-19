@@ -18,7 +18,7 @@
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
                         <a href="./index.html">
-                            <img src="img/logo-cf.png" width="100" alt="" />
+                            <img src="{{ url('/') }}/img/logo-cf.png" width="100" alt="" />
                         </a>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                                         <tbody>
                                             <tr>
                                                 <td class="si-pic">
-                                                    <img src="img/select-product-1.jpg" alt="" />
+                                                    <img src="{{ url('/') }}/img/select-product-1.jpg" alt="" />
                                                 </td>
                                                 <td class="si-text">
                                                     <div class="product-selected">
@@ -51,7 +51,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="si-pic">
-                                                    <img src="img/select-product-2.jpg" alt="" />
+                                                    <img src="{{ url('/') }}/img/select-product-2.jpg" alt="" />
                                                 </td>
                                                 <td class="si-text">
                                                     <div class="product-selected">

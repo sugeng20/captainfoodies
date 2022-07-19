@@ -63,7 +63,7 @@
                         </div>
                         <div class="pi-text">
                             <div class="catagory-name">{{ $item->nama_kategori }}</div>
-                            <a href="#">
+                            <a href="{{ route('detail-produk', $barang->slug) }}">
                                 <h5>{{
                                     $barang->nama_barang }}</h5>
                             </a>

@@ -24,8 +24,9 @@ class HomeController extends Controller
 
     public function detail($slug)
     {
-        $item = Barang::where('slug', $slug)->firstOrFail();
+        $item = Barang::where('slug', $slug)->with('kategori')->firstOrFail();
+        $items = Barang::where('id_kategori', $item->id_kategori)->with('kategori')->get();
         $no_whatsapp = User::find(1)->no_whatsapp;
-        return view('pages.frontend.detail', compact('item', 'no_whatsapp'));
+        return view('pages.frontend.detail', compact('item', 'no_whatsapp', 'items'));
     }
 }
