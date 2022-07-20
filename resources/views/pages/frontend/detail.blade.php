@@ -120,7 +120,7 @@
                                     number_format($item->harga_barang, 0, ',', '.') }}</h4>
                             </div>
                             <div class="quantity">
-                                <a href="shopping-cart.html" class="primary-btn pd-cart">Add To Cart</a>
+                                <a href="{{ url('cart') }}" class="primary-btn pd-cart">Add To Cart</a>
                             </div>
                         </div>
                     </div>

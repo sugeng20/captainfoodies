@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
-                        <a href="./index.html">
+                        <a href="{{ url('/') }}">
                             <img src="{{ url('/') }}/img/logo-cf.png" width="100" alt="" />
                         </a>
                     </div>

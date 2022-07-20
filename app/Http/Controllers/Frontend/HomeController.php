@@ -29,4 +29,14 @@ class HomeController extends Controller
         $no_whatsapp = User::find(1)->no_whatsapp;
         return view('pages.frontend.detail', compact('item', 'no_whatsapp', 'items'));
     }
+
+    public function cart()
+    {
+        return view('pages.frontend.cart');
+    }
+
+    public function success()
+    {
+        return view('pages.frontend.success');
+    }
 }
