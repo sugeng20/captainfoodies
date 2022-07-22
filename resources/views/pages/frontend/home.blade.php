@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('title')
+Home
+@endsection
+
 @section('content')
 <!-- Hero Section Begin -->
 <section class="hero-section">
@@ -8,13 +12,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
-                        <span>Bag,kids</span>
-                        <h1>Black friday</h1>
+                        <span>SNACKS</span>
+                        <h1>Rengginang Geginang</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                            do eiusmod tempor incididunt ut labore et dolore
+                            kini hadir dengan sedikit lebih modern dan praktis,dengan tetap mempertahankan rasa gurih
+                            atau manis(pilihan varian)
                         </p>
-                        <a href="#" class="primary-btn">Shop Now</a>
+
                     </div>
                 </div>
             </div>
@@ -23,13 +27,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
-                        <span>Bag,kids</span>
-                        <h1>Black friday</h1>
+                        <span>FOODS</span>
+                        <h1>Bakso Aci</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                            do eiusmod tempor incididunt ut labore et dolore
+                            Kemasan lebih elegan, proses uji lab lolos pirt dan halal, ketahanan baso aci jauh lebih
+                            lama karena menggunakan sistem
+                            vacum seal
                         </p>
-                        <a href="#" class="primary-btn">Shop Now</a>
+
                     </div>
                 </div>
             </div>
@@ -54,7 +59,9 @@
                             <img src="{{ asset('backend/barang/' . $barang->foto_barang) }}" alt="" />
                             <ul>
                                 <li class="w-icon active">
-                                    <a href="#"><i class="icon_bag_alt"></i></a>
+                                    <a style="cursor: pointer;"
+                                        onclick="saveKeranjang('{{ $barang->id }}', '{{ $barang->nama_barang }}', {{ $barang->harga_barang }}, '{{ asset('backend/barang/' . $barang->foto_barang) }}', false)"><i
+                                            class="icon_bag_alt"></i></a>
                                 </li>
                                 <li class="quick-view">
                                     <a href="{{ route('detail-produk', $barang->slug) }}">+ Quick View</a>

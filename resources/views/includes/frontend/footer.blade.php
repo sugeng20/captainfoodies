@@ -53,7 +53,7 @@
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        All rights reserved | Shayna
+                        All rights reserved | Captainfoodies
                     </div>
                 </div>
             </div>

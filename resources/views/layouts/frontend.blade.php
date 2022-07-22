@@ -7,11 +7,12 @@
     <meta name="keywords" content="Shayna, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Shayna | Template</title>
+    <title>@yield('title') | Captainfoodies</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
         rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css" type="text/css" />
@@ -56,6 +57,133 @@
     <script src="{{ url('/') }}/js/owl.carousel.min.js"></script>
     <script src="{{ url('/') }}/js/main.js"></script>
 
+    <script>
+        var keranjangUser = [];
+        if (localStorage.getItem("keranjangUser")) {
+            try {
+                keranjangUser = JSON.parse(localStorage.getItem("keranjangUser"));
+            } catch (e) {
+                localStorage.removeItem("keranjangUser");
+            }
+        }
+        function formatRupiah(angka, prefix){
+            var number_string   = String(angka).replace(/[^,\d]/g, '').toString(),
+            split   		    = number_string.split(','),
+            sisa     		    = split[0].length % 3,
+            rupiah     		    = split[0].substr(0, sisa),
+            ribuan     		    = split[0].substr(sisa).match(/\d{3}/gi);
+
+            // tambahkan titik jika yang di input sudah menjadi angka ribuan
+            if(ribuan){
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
+        }
+
+        updateCart();
+
+        function updateCart() {
+            var totalCart = 0;
+            $('#cartElement').empty();
+            keranjangUser.map(function(data) {
+                $('#cartElement').append(`
+                    <tr>
+                        <td class="si-pic">
+                            <img src="${data.photo}" width="50" alt="" />
+                        </td>
+                        <td class="si-text">
+                            <div class="product-selected">
+                                <p>Rp. ${formatRupiah(data.price)} x ${data.qty}</p>
+                                <h6>${data.name}</h6>
+                            </div>
+                        </td>
+                        <td class="si-close">
+                            <i class="ti-close" style="cursor: pointer;" onclick="removeItem(${data.id})"></i>
+                        </td>
+                    </tr>
+                `)
+                totalCart += data.price * data.qty;
+            })
+            $('#cartQuantity').html(keranjangUser.length);
+            $('#totalCart').html(`Rp. ${formatRupiah(totalCart)}`);
+        }
+
+        function saveKeranjang(idProduct, nameProduct, priceProduct, photoProduct, addToCart) {
+            if(addToCart) {
+                var checked = true;
+                var qty = document.querySelector('[name="quantity"]').value;
+                keranjangUser = keranjangUser.map(function(data) {
+                    if(data.id == idProduct) {
+                        data.qty += parseInt(qty);
+                        checked = false;
+                        return data;
+                    }
+                    return data;
+                })
+
+                if(checked) {
+                    let productStored = {
+                        id: idProduct,
+                        name: nameProduct,
+                        price: parseInt(priceProduct),
+                        photo: photoProduct,
+                        qty: parseInt(qty),
+                    };
+                    
+                    keranjangUser.push(productStored);
+                }
+            } else {
+                var checked = true;
+                keranjangUser = keranjangUser.map(function(data) {
+                    if(data.id == idProduct) {
+                        data.qty += 1;
+                        checked = false;
+                        return data;
+                    }
+                    return data;
+                })
+
+                if(checked) {
+                    let productStored = {
+                        id: idProduct,
+                        name: nameProduct,
+                        price: priceProduct,
+                        photo: photoProduct,
+                        qty: 1,
+                    };
+                    
+                    keranjangUser.push(productStored);
+                }
+            }
+            
+            const parsed = JSON.stringify(keranjangUser);
+            localStorage.setItem("keranjangUser", parsed);
+            updateCart()
+            alert('Berhasil Menambahkan ke Cart')
+            if(addToCart) {
+                window.location.href = '{{ url("/cart") }}'
+            }
+        }
+
+        function removeItem(idx) {
+            // Cari Tahu id dari si item yang akan dihapus
+            let keranjangUserStorage = JSON.parse(
+                localStorage.getItem("keranjangUser")
+            );
+            let itemKeranjangUserStorage = keranjangUserStorage.map(
+                (itemKeranjangUserStorage) => itemKeranjangUserStorage.id
+            );
+            // Cocokan idx item dengan id yang ada di storage
+            let index = itemKeranjangUserStorage.findIndex((id) => id == idx);
+            this.keranjangUser.splice(index, 1);
+            const parsed = JSON.stringify(this.keranjangUser);
+            localStorage.setItem("keranjangUser", parsed);
+            window.location.reload();
+        }
+    </script>
     @stack('add-script')
 </body>
 

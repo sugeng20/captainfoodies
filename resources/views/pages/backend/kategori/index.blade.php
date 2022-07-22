@@ -9,7 +9,10 @@ Kategori
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('kategori.create') }}" class="btn btn-primary">Tambah Kategori</a>
+                <a href="{{ route('kategori.create') }}" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                    Tambah Kategori
+                </a>
                 @if (Session::get('status'))
                 <div class="my-3 alert alert-success" role="alert">
                     <strong>{{ Session::get('status') }}</strong>

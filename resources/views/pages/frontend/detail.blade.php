@@ -65,6 +65,10 @@
 </style>
 @endpush
 
+@section('title')
+{{ $item->nama_barang }}
+@endsection
+
 @section('content')
 <!-- Breadcrumb Section Begin -->
 <div class="breacrumb-section">
@@ -72,7 +76,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="./home.html"><i class="fa fa-home"></i> Home</a>
+                    <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
                     <span>Detail</span>
                 </div>
             </div>
@@ -120,7 +124,9 @@
                                     number_format($item->harga_barang, 0, ',', '.') }}</h4>
                             </div>
                             <div class="quantity">
-                                <a href="{{ url('cart') }}" class="primary-btn pd-cart">Add To Cart</a>
+                                <a style="cursor: pointer;"
+                                    onclick="saveKeranjang('{{ $item->id }}', '{{ $item->nama_barang }}', {{ $item->harga_barang }}, '{{ asset('backend/barang/' . $item->foto_barang) }}', true)"
+                                    class="primary-btn pd-cart">Add To Cart</a>
                             </div>
                         </div>
                     </div>
@@ -211,23 +217,6 @@
         }
 
         return counter;
-    }
-
-    function formatRupiah(angka, prefix){
-        var number_string   = String(angka).replace(/[^,\d]/g, '').toString(),
-        split   		    = number_string.split(','),
-        sisa     		    = split[0].length % 3,
-        rupiah     		    = split[0].substr(0, sisa),
-        ribuan     		    = split[0].substr(sisa).match(/\d{3}/gi);
-
-        // tambahkan titik jika yang di input sudah menjadi angka ribuan
-        if(ribuan){
-            separator = sisa ? '.' : '';
-            rupiah += separator + ribuan.join('.');
-        }
-
-        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-        return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
     }
 
     var harga_barang = {{ $item->harga_barang }};
