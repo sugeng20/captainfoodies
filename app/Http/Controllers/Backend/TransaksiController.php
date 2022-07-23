@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Barang;
-use App\Models\Kategori;
+use App\Models\DetailTransaksi;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class TransaksiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +16,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.backend.dashboard.index', [
-            'barang' => Barang::count(),
-            'kategori' => Kategori::count(),
-            'transaksi' => Transaksi::count(),
-            'pendapatan' => Transaksi::where('status_transaksi', 'BERHASIL')->sum('total_transaksi')
+        return view('pages.backend.transaksi.index', [
+            'items' => Transaksi::orderBy('id', 'DESC')->get()
         ]);
     }
 
@@ -54,7 +50,10 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.backend.transaksi.show', [
+            'item' => Transaksi::findOrFail($id),
+            'items' => DetailTransaksi::where('id_transaksi', $id)->with('barang')->get()
+        ]);
     }
 
     /**
@@ -65,7 +64,9 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pages.backend.transaksi.edit', [
+            'item' => Transaksi::findOrFail($id),
+        ]);
     }
 
     /**
@@ -77,7 +78,8 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Transaksi::findOrFail($id)->update(['status_transaksi' => $request->status_transaksi]);
+        return redirect()->route('transaksi.index')->with('status', 'Berhasil Update Status Transaksi');
     }
 
     /**

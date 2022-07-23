@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend\BarangController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\KategoriController;
+use App\Http\Controllers\Backend\TransaksiController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/beranda', [HomeController::class, 'beranda']);
 Route::get('/cart', [HomeController::class, 'cart']);
+Route::post('/checkout', [HomeController::class, 'checkout']);
 Route::get('/success', [HomeController::class, 'success']);
 Route::get('/produk/{detail}', [HomeController::class, 'detail'])->name('detail-produk');
 
@@ -35,4 +37,5 @@ Route::middleware(['auth'])->group(function() {
     Route::resource('barang', BarangController::class);
     Route::resource('kategori', KategoriController::class);
     Route::resource('user', UserController::class);
+    Route::resource('transaksi', TransaksiController::class);
 });

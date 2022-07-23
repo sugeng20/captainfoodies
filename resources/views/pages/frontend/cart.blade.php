@@ -23,9 +23,9 @@ Cart
 <!-- Shopping Cart Section Begin -->
 <section class="shopping-cart spad">
     <div class="container">
-        <form>
+        <form enctype="multipart/form-data" action="{{ url('checkout') }}" method="POST">
+            @csrf
             <div class="row">
-
                 <div class="col-lg-8">
                     <div class="user-checkout">
 
@@ -33,15 +33,15 @@ Cart
                             <label for="namaLengkap" style="font-weight: bold; font-size: 18px;">Metode
                                 Pembayaran</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="metodePembayaran" id="transferBank"
-                                    value="option1" checked required>
+                                <input class="form-check-input" type="radio" name="metode_pembayaran" id="transferBank"
+                                    value="TRANSFER BANK" checked>
                                 <label class="form-check-label" for="transferBank">
                                     Transfer Bank
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="metodePembayaran" id="cod"
-                                    value="option2" required>
+                                <input class="form-check-input" type="radio" name="metode_pembayaran" id="cod"
+                                    value="COD">
                                 <label class="form-check-label" for="cod">
                                     Bayar Langsung ditempat (COD)
                                 </label>
@@ -50,28 +50,31 @@ Cart
                         <div class="form-group">
                             <label for="namaLengkap">Nama lengkap</label>
                             <input type="text" class="form-control" id="namaLengkap" aria-describedby="namaHelp"
-                                placeholder="Masukan Nama" required>
+                                placeholder="Masukan Nama" name="nama_lengkap" required>
                         </div>
                         <div class="form-group">
                             <label for="namaLengkap">Email Address</label>
                             <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp"
-                                placeholder="Masukan Email" required>
+                                placeholder="Masukan Email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="namaLengkap">No. HP</label>
                             <input type="text" class="form-control" id="noHP" aria-describedby="noHPHelp"
-                                placeholder="Masukan No. HP" required>
+                                placeholder="Masukan No. HP" name="no_hp" required>
                         </div>
                         <div class="form-group">
                             <label for="alamatLengkap">Alamat Lengkap</label>
-                            <textarea class="form-control" id="alamatLengkap" rows="3" required></textarea>
+                            <textarea class="form-control" id="alamatLengkap" rows="3" name="alamat_lengkap"
+                                required></textarea>
                         </div>
                         <div class="form-group transfer">
                             <label for="buktiPembayaran">Bukti Pembayaran</label>
-                            <input type="file" class="form-control" id="buktiPembayaran"
+                            <input type="file" class="form-control" name="bukti_pembayaran" id="buktiPembayaran"
                                 aria-describedby="buktiPembayaranHelp" required>
                         </div>
-
+                        <input type="hidden" name="uuid" id="uuid" value="" required>
+                        <input type="hidden" name="total_transaksi" id="totalTransaksi" value="" required>
+                        <div id="formBarang"></div>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -85,7 +88,8 @@ Cart
                                     <li class="subtotal mt-3 transfer">No. Rekening <span>2208 1996 1403</span></li>
                                     <li class="subtotal mt-3 transfer">Nama Penerima <span>Gina Noviani</span></li>
                                 </ul>
-                                <a href="{{ url('success') }}" class="proceed-btn">PESAN SEKARANG</a>
+                                <button disabled type="submit" id="buttonPesan" class="proceed-btn btn-block">PESAN
+                                    SEKARANG</button>
                             </div>
                         </div>
                     </div>
@@ -120,7 +124,13 @@ Cart
 @push('add-script')
 <script>
     var totalCart = 0;
+    if(keranjangUser.length > 0) {
+        $('#buttonPesan').prop('disabled', false);
+    }
+
+    var hitung = 0;
     keranjangUser.map(function(data) {
+        hitung++;
         $('#shoppingCart').append(`
             <tr>
                 <td class="cart-pic first-row">
@@ -135,16 +145,30 @@ Cart
                         </i></a></td>
             </tr>
         `);
+
+        $('#formBarang').append(`
+            <input type="hidden" name="id[${hitung}]" value="${data.id}">
+            <input type="hidden" name="qty[${hitung}]" value="${data.qty}">
+        `);
+
         totalCart += data.price * data.qty;
     })
 
-    $('#idTransaction').html(`#CP${Math.floor(Math.random() * 100000)}`);
+    let angkaRandom = Math.floor(Math.random() * 100000);
+    $('#idTransaction').html(`#CF${angkaRandom}`);
+    $('#uuid').val(`#CF${angkaRandom}`)
     $('#totalBiaya').html(`Rp. ${formatRupiah(totalCart)}`);
+    $('#totalTransaksi').val(totalCart);
     $('#cod').click(function() {
         $('.transfer').prop('hidden', true)
+        $('#buktiPembayaran').prop('required', false);
     })
     $('#transferBank').click(function() {
         $('.transfer').prop('hidden', false)
+        $('#buktiPembayaran').prop('required', true);
+    })
+    $('#buttonPesan').click(function() {
+        localStorage.removeItem("keranjangUser");
     })
 </script>
 @endpush
