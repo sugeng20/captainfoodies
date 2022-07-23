@@ -15,4 +15,9 @@ class Transaksi extends Model
         'uuid', 'metode_pembayaran', 'nama_lengkap', 'email', 'no_hp',
         'alamat_lengkap', 'bukti_pembayaran', 'total_transaksi', 'status_transaksi'
     ];
+
+    public function detail_transaksi()
+    {
+        return $this->hasMany(DetailTransaksi::class, 'id_transaksi', 'id');
+    }
 }

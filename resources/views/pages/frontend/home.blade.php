@@ -8,7 +8,7 @@ Home
 <!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="img/hero-1.jpg">
+        <div class="single-hero-items set-bg" data-setbg="img/hero-rengginang.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
@@ -23,7 +23,7 @@ Home
                 </div>
             </div>
         </div>
-        <div class="single-hero-items set-bg" data-setbg="img/hero-2.jpg">
+        <div class="single-hero-items set-bg" data-setbg="img/hero-baksoaci.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">

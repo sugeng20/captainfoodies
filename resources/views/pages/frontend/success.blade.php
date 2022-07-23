@@ -36,7 +36,7 @@
         <div class="col col-lg-4 text-center">
             <img src="{{ url('/') }}/img/success-buy.png" alt="" width="294">
             <h3 class="mt-4">
-                Sukses Terbayar!
+                Transaksi Berhasil !
             </h3>
             <p class="mt-2">
                 Silakan tunggu update terbaru dari kami via email yang sudah Anda daftarkan sebelumnya.

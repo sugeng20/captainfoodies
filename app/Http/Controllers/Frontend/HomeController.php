@@ -50,7 +50,7 @@ class HomeController extends Controller
             $file = $request->file('bukti_pembayaran');
             $fileName = 'bukti_pembyaran_' . uniqid() . '_' . date("Ymd") . 
             '.'. $file->getClientOriginalExtension();
-            $file->move('backend/bukti_pembyaran/', $fileName);
+            $file->move('backend/bukti_pembayaran/', $fileName);
             $data['bukti_pembayaran'] = $fileName;
         }
         $transaksi = Transaksi::create($data);

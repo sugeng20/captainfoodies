@@ -17,7 +17,7 @@ Transaksi
                 <table id="example2" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>UUID</th>
+                            <th>id</th>
                             <th>Nama</th>
                             <th>Metode Pembayaran</th>
                             <th>Status</th>
@@ -25,9 +25,12 @@ Transaksi
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                        $no = 1;
+                        @endphp
                         @foreach ($items as $item)
                         <tr>
-                            <td>{{ $item->uuid }}</td>
+                            <td>{{ $no++ }}</td>
                             <td>
                                 {{ $item->nama_lengkap }}
                             </td>
