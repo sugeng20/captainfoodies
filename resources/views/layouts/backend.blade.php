@@ -114,7 +114,7 @@
                         <li class="nav-item">
                             <a href="{{ url('user') }}"
                                 class="nav-link {{ Request::segment(1) == 'user' ? 'active' : '' }}"">
-                                                        <i class=" nav-icon fas fa-list"></i>
+                                                        <i class=" nav-icon fas fa-bars"></i>
                                 <p>
                                     Pengaturan
                                 </p>
