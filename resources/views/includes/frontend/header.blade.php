@@ -45,7 +45,8 @@
                                     <h5 id="totalCart">Rp. 0</h5>
                                 </div>
                                 <div class="select-button">
-                                    <a href="{{ url('cart') }}" class="primary-btn checkout-btn">VIEW CARD</a>
+                                    <a href="{{ url('cart') }}" class="primary-btn checkout-btn">Lihat Keranjang
+                                        Belanja</a>
                                 </div>
                             </div>
                         </li>
