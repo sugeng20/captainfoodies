@@ -43,7 +43,15 @@
         <tr>
             <td>Status Transaksi</td>
             <td>
+                @if($item->status_transaksi == 'DIPROSES')
                 <div class="badge badge-info">{{ $item->status_transaksi }}</div>
+                @elseif($item->status_transaksi == 'DIKIRIM')
+                <div class="badge badge-warning">{{ $item->status_transaksi }}</div>
+                @elseif($item->status_transaksi == 'BERHASIL')
+                <div class="badge badge-success">{{ $item->status_transaksi }}</div>
+                @elseif($item->status_transaksi == 'GAGAL')
+                <div class="badge badge-danger">{{ $item->status_transaksi }}</div>
+                @endif
             </td>
         </tr>
     </tbody>
