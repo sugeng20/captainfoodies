@@ -126,7 +126,7 @@
                             <div class="quantity">
                                 <a style="cursor: pointer;"
                                     onclick="saveKeranjang('{{ $item->id }}', '{{ $item->nama_barang }}', {{ $item->harga_barang }}, '{{ asset('backend/barang/' . $item->foto_barang) }}', true)"
-                                    class="primary-btn pd-cart">Add To Cart</a>
+                                    class="primary-btn pd-cart">Tambahkan Ke Keranjang</a>
                             </div>
                         </div>
                     </div>
