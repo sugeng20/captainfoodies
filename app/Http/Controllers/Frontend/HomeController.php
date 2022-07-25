@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NotifikasiTransaksiEmail;
 use App\Models\Barang;
 use App\Models\DetailTransaksi;
 use App\Models\Kategori;
 use App\Models\Transaksi;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -63,6 +65,8 @@ class HomeController extends Controller
                 'qty' => $request->qty[$i],
             ]);
         }
+
+        Mail::to($transaksi->email)->send(new NotifikasiTransaksiEmail($transaksi->id));
 
         return redirect('/success');
     }

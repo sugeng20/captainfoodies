@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NotifikasiTransaksiEmail;
 use App\Models\DetailTransaksi;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TransaksiController extends Controller
 {
@@ -79,6 +81,8 @@ class TransaksiController extends Controller
     public function update(Request $request, $id)
     {
         Transaksi::findOrFail($id)->update(['status_transaksi' => $request->status_transaksi]);
+        $transaksi = Transaksi::find($id);
+        Mail::to($transaksi->email)->send(new NotifikasiTransaksiEmail($id));
         return redirect()->route('transaksi.index')->with('status', 'Berhasil Update Status Transaksi');
     }
 

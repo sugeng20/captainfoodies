@@ -3,16 +3,37 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Shayna Template" />
-    <meta name="keywords" content="Shayna, unica, creative, html" />
+    <meta name="description"
+        content="Captain Foodies Tempat Jualanya Snack dan Foods Kesukaan Anda, Siap menemani harimu dengan gembira" />
+    <meta name="keywords" content="captain foodies, captain, foodies, snacks, shabat pintar" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- SEO Meta description -->
+    <meta name="description" content="Captain Foodies">
+    <meta name="author" content="Sahabat Pintar">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+    <meta property="og:site_name" content="Captain Foodies" /> <!-- website name -->
+    <meta property="og:site" content="{{ url('/') }}" /> <!-- website link -->
+    <meta property="og:title" content="Captain Foodies" /> <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="Captain Foodies" />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="{{ url('/') }}/img/logo-cf.png" /> <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="{{ url('/') }}" /> <!-- where do you want your post to link to -->
+    <meta property="og:type" content="article" />
+
     <title>@yield('title') | Captainfoodies</title>
+
+    <!--favicon icon-->
+    <link rel="icon" href="{{ url('/') }}/img/logo-cf.png" type="image/png" sizes="16x16">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link href="{{ url('/') }}/img/logo-cf.png" rel="apple-touch-icon">
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css" type="text/css" />
