@@ -86,7 +86,7 @@ Home
                                             class="icon_bag_alt"></i></a>
                                 </li>
                                 <li class="quick-view">
-                                    <a href="{{ route('detail-produk', $barang->slug) }}">+ Quick View</a>
+                                    <a href="{{ route('detail-produk', $barang->slug) }}">+ Lihat Detail</a>
                                 </li>
                             </ul>
                         </div>

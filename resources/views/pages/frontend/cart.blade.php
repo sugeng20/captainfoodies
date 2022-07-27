@@ -11,7 +11,7 @@ Cart
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="/"><i class="fa fa-home"></i> Home</a>
+                    <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
                     <span>Keranjang Belanja</span>
                 </div>
             </div>
