@@ -41,7 +41,6 @@ Home
                 </div>
             </div>
         </div>
-        
     </div>
 </section>
 <!-- Hero Section End -->
