@@ -39,26 +39,7 @@ Home
                 </div>
             </div>
         </div>
-        <div class="single-hero-items set-bg" data-setbg="img/banner-1.png">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
 
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="single-hero-items set-bg" data-setbg="img/banner-2.png">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 <!-- Hero Section End -->
