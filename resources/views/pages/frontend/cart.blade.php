@@ -11,7 +11,7 @@ Cart
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text product-more">
-                    <a href="./home.html"><i class="fa fa-home"></i> Home</a>
+                    <a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a>
                     <span>Keranjang Belanja</span>
                 </div>
             </div>
@@ -102,10 +102,10 @@ Cart
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Image</th>
-                                    <th class="p-name text-center">Product Name</th>
-                                    <th>Price</th>
-                                    <th>Action</th>
+                                    <th>Gambar</th>
+                                    <th class="p-name text-center">Nama Barang</th>
+                                    <th>Harga</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody id="shoppingCart">

@@ -183,7 +183,7 @@
             const parsed = JSON.stringify(keranjangUser);
             localStorage.setItem("keranjangUser", parsed);
             updateCart()
-            alert('Berhasil Menambahkan ke Cart')
+            alert('Berhasil Menambahkan ke Keranjang Belanja')
             if(addToCart) {
                 window.location.href = '{{ url("/cart") }}'
             }
