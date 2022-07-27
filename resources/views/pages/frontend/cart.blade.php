@@ -169,6 +169,8 @@ Cart
     })
     $('#buttonPesan').click(function() {
         localStorage.removeItem("keranjangUser");
+        $(".loader").fadeOut();
+        $("#preloder").delay(200).fadeOut("slow");
     })
 </script>
 @endpush
