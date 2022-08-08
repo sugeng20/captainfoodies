@@ -28,7 +28,6 @@ Cart
             <div class="row">
                 <div class="col-lg-8">
                     <div class="user-checkout">
-
                         <div class="form-group">
                             <label for="namaLengkap" style="font-weight: bold; font-size: 18px;">Metode
                                 Pembayaran</label>
@@ -84,6 +83,8 @@ Cart
                                 <ul>
                                     <li class="subtotal">ID Transaction <span id="idTransaction"></span></li>
                                     <li class="subtotal mt-3">Total Biaya <span id="totalBiaya"></span></li>
+                                    <li class="subtotal mt-3 transfer">Bank Transfer <span>BRI</span></li>
+                                    <li class="subtotal mt-3 transfer">No. Rekening <span>2208 1996 1507</span></li>
                                     <li class="subtotal mt-3 transfer">Bank Transfer <span>Mandiri</span></li>
                                     <li class="subtotal mt-3 transfer">No. Rekening <span>2208 1996 1403</span></li>
                                     <li class="subtotal mt-3 transfer">Nama Penerima <span>Gina Noviani</span></li>
