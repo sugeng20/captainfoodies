@@ -16,7 +16,7 @@ class CreatePengunjungTable extends Migration
     {
         Schema::create('pengunjung', function (Blueprint $table) {
             $table->id('id_pengunjung');
-            $table->foreignId(Transaksi::class, 'id_transaksi');
+            $table->foreignIdFor(Transaksi::class, 'id_transaksi')->index();
             $table->string('nama_lengkap');
             $table->string('email');
             $table->string('no_hp');
