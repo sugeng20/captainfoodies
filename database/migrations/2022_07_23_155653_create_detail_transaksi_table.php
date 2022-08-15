@@ -14,9 +14,9 @@ class CreateDetailTransaksiTable extends Migration
     public function up()
     {
         Schema::create('detail_transaksi', function (Blueprint $table) {
-            $table->id();
-            $table->integer('id_transaksi');
-            $table->integer('id_barang');
+            $table->id('id_detail transaksi');
+            $table->foreignId('id_transaksi');
+            $table->foreignId('id_barang');
             $table->integer('qty');
             $table->timestamps();
         });

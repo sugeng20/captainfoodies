@@ -14,14 +14,9 @@ class CreateTransaksiTable extends Migration
     public function up()
     {
         Schema::create('transaksi', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_transaksi');
             $table->string('uuid');
             $table->string('metode_pembayaran');
-            $table->string('nama_lengkap');
-            $table->string('email');
-            $table->string('no_hp');
-            $table->string('alamat_lengkap');
-            $table->string('bukti_pembayaran')->nullable();
             $table->integer('total_transaksi');
             $table->enum('status_transaksi', ['DIPROSES', 'DIKIRIM', 'BERHASIL', 'GAGAL']);
             $table->timestamps();
