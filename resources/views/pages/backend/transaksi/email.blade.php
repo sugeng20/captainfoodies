@@ -398,7 +398,7 @@
                                                                 cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td> <a href="https://wa.me/62 8986197726?"
+                                                                        <td> <a href="https://wa.me/628986197726?"
                                                                                 target="_blank">Hubungi WhatssApp</a>
                                                                         </td>
                                                                     </tr>
@@ -435,7 +435,7 @@
                             </tr>
                             <tr>
                                 <td class="content-block powered-by">
-                                    Powered by <a href="https://sahabatpinar.com">Sahabatpinyar</a>.
+                                    Powered by <a href="https://sahabatpinar.com">Sahabatpintar</a>.
                                 </td>
                             </tr>
                         </table>

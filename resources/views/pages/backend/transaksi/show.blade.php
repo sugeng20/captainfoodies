@@ -29,7 +29,7 @@
             <td>Bukti Pembayaran</td>
             <td>
                 <a href="{{ asset('backend/bukti_pembayaran/' . $item->bukti_pembayaran) }}" class="btn btn-primary"
-                    target="_blank">Lihat Bukti Pembyaran</a>
+                    target="_blank">Lihat Bukti Pembayaran</a>
             </td>
         </tr>
         @endif
