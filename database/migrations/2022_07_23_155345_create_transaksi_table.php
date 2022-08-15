@@ -15,7 +15,7 @@ class CreateTransaksiTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id('id_transaksi');
-            $table->string('uuid');
+            $table->string('uuid')->index();
             $table->string('metode_pembayaran');
             $table->integer('total_transaksi');
             $table->enum('status_transaksi', ['DIPROSES', 'DIKIRIM', 'BERHASIL', 'GAGAL']);
