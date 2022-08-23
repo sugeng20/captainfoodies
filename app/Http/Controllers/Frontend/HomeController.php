@@ -56,7 +56,7 @@ class HomeController extends Controller
             $fileName = 'bukti_pembyaran_' . uniqid() . '_' . date("Ymd") . 
             '.'. $file->getClientOriginalExtension();
             $file->move('backend/bukti_pembayaran/', $fileName);
-            $pengunjung->bukti_pembayaran = $request->bukti_pembayaran;
+            $pengunjung->bukti_pembayaran = $fileName;
         }
         $pengunjung->alamat_lengkap      = $request->alamat_lengkap;
         $pengunjung->save();

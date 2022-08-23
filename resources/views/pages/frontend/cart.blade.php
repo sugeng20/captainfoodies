@@ -41,7 +41,7 @@ Cart
                     </table>
                 </div>
 
-                <button class="btn btn-dark btn-lg" type="button" id="btnPesanBarang">PESAN BARANG</button>
+                <button class="btn btn-dark btn-lg" type="button" id="btnPesanBarang">BUAT PESANAN</button>
             </div>
 
             <div id="konfirmasiPesanan" class="col-lg-12" hidden>
@@ -116,7 +116,7 @@ Cart
                                             </li>
                                         </ul>
                                         <button disabled type="submit" id="buttonPesan"
-                                            class="proceed-btn btn-block">KONFRIMASI PEMBAYARAN</button>
+                                            class="proceed-btn btn-block">KONFIRMASI PEMBAYARAN</button>
                                     </div>
                                 </div>
                             </div>
