@@ -373,7 +373,7 @@
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
                                         <td>
-                                            <p>Hallo <b>{{ $transaksi->nama_lengkap }}</b>,</p>
+                                            <p>Hallo <b>{{ $transaksi->pengunjung->nama_lengkap }}</b>,</p>
                                             @if ($transaksi->status_transaksi == 'DIPROSES')
                                             <p>Barang yang sudah kamu beli sedang <b>diproses</b> oleh penjual, mohon
                                                 menunggu

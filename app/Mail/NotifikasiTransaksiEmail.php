@@ -29,7 +29,7 @@ class NotifikasiTransaksiEmail extends Mailable
      */
     public function build()
     {
-        $transaksi = Transaksi::find($this->id);
+        $transaksi = Transaksi::with('pengunjung')->find($this->id);
         if($transaksi->status_transaksi == 'DIPROSES') {
             $subject = 'Barang Sedang Diproses untuk untuk pengiriman ' . $transaksi->uuid;
         } elseif($transaksi->status_transaksi == 'DIKIRIM') {
