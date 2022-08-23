@@ -11,7 +11,8 @@ Edit Barang
             <div class="card-body">
                 <a href="{{ route('barang.index') }}" class="btn btn-info mb-4"><i
                         class=" nav-icon fas fa-arrow-circle-left"></i> Kembali</a>
-                <form action="{{ route('barang.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('barang.update', $item->id_barang) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group row">
@@ -53,7 +54,8 @@ Edit Barang
                         <div class="col-sm-10">
                             <select name="id_kategori" id="id_kategori" class="form-control">
                                 @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ $category->id == $item->id_kategori ? 'selected'
+                                <option value="{{ $category->id_kategori }}" {{ $category->id_kategori ==
+                                    $item->id_kategori ? 'selected'
                                     : '' }}>{{
                                     $category->nama_kategori }}</option>
                                 @endforeach

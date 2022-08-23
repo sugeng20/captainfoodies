@@ -40,11 +40,11 @@ Kategori
                             </td>
 
                             <td>
-                                <a href="{{ route('kategori.edit', $item->id) }}" class="btn btn-warning"
+                                <a href="{{ route('kategori.edit', $item->id_kategori) }}" class="btn btn-warning"
                                     title="Edit"><i class="fa fa-edit"></i></a>
 
-                                <form class="d-inline" action="{{ route('kategori.destroy', $item->id) }}" method="POST"
-                                    onsubmit="return confirm('Apakah Anda Yakin?')">
+                                <form class="d-inline" action="{{ route('kategori.destroy', $item->id_kategori) }}"
+                                    method="POST" onsubmit="return confirm('Apakah Anda Yakin?')">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" title="Hapus" class="btn btn-danger"><i

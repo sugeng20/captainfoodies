@@ -10,26 +10,26 @@
         </tr>
         <tr>
             <td>Nama Lengkap</td>
-            <td>{{ $item->nama_lengkap }}</td>
+            <td>{{ $item->pengunjung->nama_lengkap }}</td>
         </tr>
         <tr>
             <td>Email</td>
-            <td>{{ $item->email }}</td>
+            <td>{{ $item->pengunjung->email }}</td>
         </tr>
         <tr>
             <td>No HP</td>
-            <td>{{ $item->no_hp }}</td>
+            <td>{{ $item->pengunjung->no_hp }}</td>
         </tr>
         <tr>
             <td>Alamat Lengkap</td>
-            <td>{{ $item->alamat_lengkap }}</td>
+            <td>{{ $item->pengunjung->alamat_lengkap }}</td>
         </tr>
         @if($item->metode_pembayaran == 'TRANSFER BANK')
         <tr>
             <td>Bukti Pembayaran</td>
             <td>
-                <a href="{{ asset('backend/bukti_pembayaran/' . $item->bukti_pembayaran) }}" class="btn btn-primary"
-                    target="_blank">Lihat Bukti Pembayaran</a>
+                <a href="{{ asset('backend/bukti_pembayaran/' . $item->pengunjung->bukti_pembayaran) }}"
+                    class="btn btn-primary" target="_blank">Lihat Bukti Pembayaran</a>
             </td>
         </tr>
         @endif

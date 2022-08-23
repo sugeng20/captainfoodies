@@ -29,7 +29,7 @@ Ganti Password
                 @endif
                 <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="id" value="{{ $user->id }}">
+                    <input type="hidden" name="id" value="{{ $user->id_admin }}">
                     <div class="form-group row">
                         <label for="password" class="col-sm-2 col-form-label">Password Baru</label>
                         <div class="col-sm-10">

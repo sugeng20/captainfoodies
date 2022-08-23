@@ -16,7 +16,7 @@ class KategoriSeeder extends Seeder
     public function run()
     {
         DB::table('kategori')->insert([
-            ['nama_kategori' => 'Non Kategori', 'slug' => 'non-kategori', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['nama_kategori' => 'Non Kategori', 'slug' => 'non-kategori'],
         ]);
     }
 }

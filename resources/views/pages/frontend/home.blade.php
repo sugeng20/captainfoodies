@@ -8,7 +8,7 @@ Home
 <!-- Hero Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
-        
+
         <div class="single-hero-items set-bg" data-setbg="img/hero-rengginang.jpg">
             <div class="container">
                 <div class="row">
@@ -62,7 +62,7 @@ Home
                             <ul>
                                 <li class="w-icon active">
                                     <a style="cursor: pointer;"
-                                        onclick="saveKeranjang('{{ $barang->id }}', '{{ $barang->nama_barang }}', {{ $barang->harga_barang }}, '{{ asset('backend/barang/' . $barang->foto_barang) }}', false)"><i
+                                        onclick="saveKeranjang('{{ $barang->id_barang }}', '{{ $barang->nama_barang }}', {{ $barang->harga_barang }}, '{{ asset('backend/barang/' . $barang->foto_barang) }}', false)"><i
                                             class="icon_bag_alt"></i></a>
                                 </li>
                                 <li class="quick-view">

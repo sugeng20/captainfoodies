@@ -32,7 +32,7 @@ Transaksi
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>
-                                {{ $item->nama_lengkap }}
+                                {{ $item->pengunjung->nama_lengkap }}
                             </td>
                             <td>
                                 {{ $item->metode_pembayaran }}
@@ -49,16 +49,16 @@ Transaksi
                                 @endif
                             </td>
                             <td>
-                                <a href="#mymodal" data-remote="{{ route('transaksi.show', $item->id) }}"
+                                <a href="#mymodal" data-remote="{{ route('transaksi.show', $item->id_transaksi) }}"
                                     data-toggle="modal" data-target="#mymodal"
                                     data-title="Detail Transaksi {{ $item->uuid }}" class="btn btn-info"
                                     title="Detail Transaksi" target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="#myModalEdit" data-remote="{{ route('transaksi.edit', $item->id) }}"
+                                <a href="#myModalEdit" data-remote="{{ route('transaksi.edit', $item->id_transaksi) }}"
                                     data-toggle="modal" data-target="#myModalEdit"
                                     data-title="Edit Transaksi {{ $item->uuid }}" class="btn btn-warning"
                                     title="Edit"><i class="fa fa-edit"></i></a>
 
-                                <form class="d-inline" action="{{ route('transaksi.destroy', $item->id) }}"
+                                <form class="d-inline" action="{{ route('transaksi.destroy', $item->id_transaksi) }}"
                                     method="POST" onsubmit="return confirm('Apakah Anda Yakin?')">
                                     @csrf
                                     @method('delete')

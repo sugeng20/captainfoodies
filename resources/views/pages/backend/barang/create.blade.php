@@ -63,7 +63,7 @@ Tambah Barang
                         <div class="col-sm-10">
                             <select name="id_kategori" id="id_kategori" class="form-control">
                                 @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->nama_kategori }}</option>
+                                <option value="{{ $category->id_kategori }}">{{ $category->nama_kategori }}</option>
                                 @endforeach
                             </select>
                         </div>

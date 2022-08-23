@@ -22,16 +22,12 @@ class UsersSeeder extends Seeder
                 'username'      => 'ginanoviani',
                 'password'      => Hash::make('12345'),
                 'no_whatsapp'   => '08986197726',
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now(),
             ],
             [
                 'nama_lengkap'  => 'Sugeng',
                 'username'      => 'sugeng',
                 'password'      => Hash::make('12345'),
                 'no_whatsapp'   => '083843063532',
-                'created_at'    => Carbon::now(),
-                'updated_at'    => Carbon::now(),
             ]
         ]);
     }

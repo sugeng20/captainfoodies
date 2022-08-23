@@ -24,7 +24,6 @@ class CreateBarangTable extends Migration
             $table->foreignIdFor(Kategori::class, 'id_kategori')->index();
             $table->longText('deskripsi');
             $table->string('slug')->index();
-            $table->timestamps();
         });
     }
 

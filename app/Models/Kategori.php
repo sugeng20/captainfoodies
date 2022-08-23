@@ -9,7 +9,11 @@ class Kategori extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $table = 'kategori';
+
+    protected $primaryKey = 'id_kategori';
 
     protected $fillable = [
         'nama_kategori', 'slug'
@@ -17,6 +21,6 @@ class Kategori extends Model
 
     public function barang()
     {
-        return $this->hasMany(Barang::class, 'id_kategori', 'id');
+        return $this->hasMany(Barang::class, 'id_kategori', 'id_kategori');
     }
 }

@@ -1,4 +1,4 @@
-<form action="{{ route('transaksi.update', $item->id) }}" method="POST">
+<form action="{{ route('transaksi.update', $item->id_transaksi) }}" method="POST">
     @csrf
     @method('put')
     <div class="form-group">

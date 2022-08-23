@@ -9,7 +9,7 @@ User
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('user.show', $user->id) }}" class="btn btn-warning mb-4"><i
+                <a href="{{ route('user.show', $user->id_admin) }}" class="btn btn-warning mb-4"><i
                         class=" nav-icon fas fa-lock"></i>
                     Ganti Password</a>
                 @if (Session::get('status'))
@@ -30,7 +30,7 @@ User
                     </div>
                 </div>
                 @endif
-                <form action="{{ route('user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('user.update', $user->id_admin) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group row">

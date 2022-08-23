@@ -17,7 +17,6 @@ class CreateKategoriTable extends Migration
             $table->id('id_kategori');
             $table->string('nama_kategori');
             $table->string('slug')->index();
-            $table->timestamps();
         });
     }
 

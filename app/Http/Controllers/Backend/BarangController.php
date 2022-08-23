@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Barang;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class BarangController extends Controller
@@ -18,7 +19,7 @@ class BarangController extends Controller
     public function index()
     { 
         return view('pages.backend.barang.index', [
-            'items' => Barang::orderBy('id', 'DESC')->get()
+            'items' => Barang::orderBy('id_barang', 'DESC')->get()
         ]);
     }
 
@@ -53,6 +54,7 @@ class BarangController extends Controller
         $data = $request->all();
         $data['harga_barang'] = str_replace('.', '', $request->harga_barang);
         $data['slug'] = Str::slug($request->nama_barang);
+        $data['id_admin'] = Auth::user()->id_admin;
         if($request->hasFile('foto_barang')) {
             $file = $request->file('foto_barang');
             $fileName = 'barang_' . uniqid() . '_' . date("Ymd") . 
@@ -109,6 +111,7 @@ class BarangController extends Controller
         $data = $request->all();
         $data['harga_barang'] = str_replace('.', '', $request->harga_barang);
         $data['slug'] = Str::slug($request->nama_barang);
+        $data['id_admin'] = Auth::user()->id_admin;
         if($request->hasFile('foto_barang')) {
             $file = $request->file('foto_barang');
             $fileName = 'barang_' . uniqid() . '_' . date("Ymd") . 

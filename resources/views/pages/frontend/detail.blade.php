@@ -125,7 +125,7 @@
                             </div>
                             <div class="quantity">
                                 <a style="cursor: pointer;"
-                                    onclick="saveKeranjang('{{ $item->id }}', '{{ $item->nama_barang }}', {{ $item->harga_barang }}, '{{ asset('backend/barang/' . $item->foto_barang) }}', true)"
+                                    onclick="saveKeranjang('{{ $item->id_barang }}', '{{ $item->nama_barang }}', {{ $item->harga_barang }}, '{{ asset('backend/barang/' . $item->foto_barang) }}', true)"
                                     class="primary-btn pd-cart">Masukan Ke Keranjang</a>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                         <ul>
                             <li class="w-icon active">
                                 <a style="cursor: pointer;"
-                                    onclick="saveKeranjang('{{ $barang->id }}', '{{ $barang->nama_barang }}', {{ $barang->harga_barang }}, '{{ asset('backend/barang/' . $barang->foto_barang) }}', false)"><i
+                                    onclick="saveKeranjang('{{ $barang->id_barang }}', '{{ $barang->nama_barang }}', {{ $barang->harga_barang }}, '{{ asset('backend/barang/' . $barang->foto_barang) }}', false)"><i
                                         class="icon_bag_alt"></i></a>
                             </li>
                             <li class="quick-view"><a href="{{ route('detail-produk', $barang->slug) }}">+ Lihat

@@ -19,7 +19,7 @@ class TransaksiController extends Controller
     public function index()
     {
         return view('pages.backend.transaksi.index', [
-            'items' => Transaksi::orderBy('id', 'DESC')->get()
+            'items' => Transaksi::orderBy('id_transaksi', 'DESC')->with('pengunjung')->get()
         ]);
     }
 
@@ -53,7 +53,7 @@ class TransaksiController extends Controller
     public function show($id)
     {
         return view('pages.backend.transaksi.show', [
-            'item' => Transaksi::findOrFail($id),
+            'item' => Transaksi::with('pengunjung')->findOrFail($id),
             'items' => DetailTransaksi::where('id_transaksi', $id)->with('barang')->get()
         ]);
     }

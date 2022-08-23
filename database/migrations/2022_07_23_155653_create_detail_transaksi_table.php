@@ -20,7 +20,6 @@ class CreateDetailTransaksiTable extends Migration
             $table->foreignIdFor(Transaksi::class, 'id_transaksi')->index();
             $table->foreignIdFor(Barang::class, 'id_barang')->index();
             $table->integer('qty');
-            $table->timestamps();
         });
     }
 

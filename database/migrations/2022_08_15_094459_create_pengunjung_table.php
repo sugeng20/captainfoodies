@@ -16,13 +16,11 @@ class CreatePengunjungTable extends Migration
     {
         Schema::create('pengunjung', function (Blueprint $table) {
             $table->id('id_pengunjung');
-            $table->foreignIdFor(Transaksi::class, 'id_transaksi')->index();
             $table->string('nama_lengkap');
             $table->string('email');
             $table->string('no_hp');
             $table->string('alamat_lengkap');
             $table->string('bukti_pembayaran')->nullable();
-            $table->timestamps();
         });
     }
 

@@ -46,11 +46,11 @@ Barang
                             <td>
                                 <a href="{{ route('detail-produk', $item->slug) }}" class="btn btn-info" title="Detail"
                                     target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('barang.edit', $item->id) }}" class="btn btn-warning" title="Edit"><i
-                                        class="fa fa-edit"></i></a>
+                                <a href="{{ route('barang.edit', $item->id_barang) }}" class="btn btn-warning"
+                                    title="Edit"><i class="fa fa-edit"></i></a>
 
-                                <form class="d-inline" action="{{ route('barang.destroy', $item->id) }}" method="POST"
-                                    onsubmit="return confirm('Apakah Anda Yakin?')">
+                                <form class="d-inline" action="{{ route('barang.destroy', $item->id_barang) }}"
+                                    method="POST" onsubmit="return confirm('Apakah Anda Yakin?')">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" title="Hapus" class="btn btn-danger"><i

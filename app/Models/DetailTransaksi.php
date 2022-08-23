@@ -11,12 +11,16 @@ class DetailTransaksi extends Model
 
     protected $table = 'detail_transaksi';
 
+    protected $primaryKey = 'id_detail_transaksi';
+
+    public $timestamps = false;
+
     protected $fillable = [
         'id_transaksi', 'id_barang', 'qty'
     ];
 
     public function barang()
     {
-        return $this->hasOne(Barang::class, 'id', 'id_barang');
+        return $this->hasOne(Barang::class, 'id_barang', 'id_barang');
     }
 }

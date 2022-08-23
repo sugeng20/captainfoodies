@@ -10,7 +10,8 @@ Tambah Kategori
         <div class="card">
             <div class="card-body">
                 <a href="{{ route('kategori.index') }}" class="btn btn-info mb-4">Kembali</a>
-                <form action="{{ route('kategori.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('kategori.update', $item->id_kategori) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group row">
