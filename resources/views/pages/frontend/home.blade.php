@@ -5,7 +5,7 @@ Home
 @endsection
 
 @section('content')
-<!-- Hero Section Begin -->
+<!-- slider Section Begin -->
 <section class="hero-section">
     <div class="hero-items owl-carousel">
 
@@ -43,9 +43,9 @@ Home
         </div>
     </div>
 </section>
-<!-- Hero Section End -->
+<!-- slider Section End -->
 
-<!-- Women Banner Section Begin -->
+<!-- Barang Section Begin -->
 <section class="women-banner spad">
     <div class="container-fluid">
         @foreach ($items as $item)
@@ -89,7 +89,7 @@ Home
         @endforeach
     </div>
 </section>
-<!-- Women Banner Section End -->
+<!--  Barang Section End -->
 
 
 <!-- Partner Logo Section Begin -->
