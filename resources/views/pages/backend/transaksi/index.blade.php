@@ -39,7 +39,8 @@ Transaksi
                                 {{ $item->metode_pembayaran }}
                             </td>
                             <td>
-                                {{ tanggal_indonesia($item->created_at) }}
+                                {{ tanggal_indonesia($item->created_at) }}, Jam
+                                {{ Carbon\Carbon::parse($item->created_at)->format('H:i') }}
                             </td>
                             <td>
                                 @if($item->status_transaksi == 'DIPROSES')
