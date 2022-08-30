@@ -20,6 +20,7 @@ Transaksi
                             <th>id</th>
                             <th>Nama</th>
                             <th>Metode Pembayaran</th>
+                            <th>Tanggal</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -36,6 +37,9 @@ Transaksi
                             </td>
                             <td>
                                 {{ $item->metode_pembayaran }}
+                            </td>
+                            <td>
+                                {{ tanggal_indonesia($item->created_at) }}
                             </td>
                             <td>
                                 @if($item->status_transaksi == 'DIPROSES')
@@ -72,10 +76,11 @@ Transaksi
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>No</th>
-                            <th>Nama Barang</th>
-                            <th>Photo</th>
-                            <th>Kategori</th>
+                            <th>id</th>
+                            <th>Nama</th>
+                            <th>Metode Pembayaran</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
